@@ -18,17 +18,21 @@ const createImageNode = () => {
     return container;
 }
 
-const nuevaImagen = createImageNode();
-const mountNode = document.getElementById('images');
+const imageContainer = document.getElementById('images');
 
-const addButton = document.querySelector('button');
+const addButton = document.querySelector('.addImage');
+const deletedButton = document.querySelector('.deletedImage');
 
 const addImage = () => {
     const newImage = createImageNode();
-    mountNode.append(newImage);
+    imageContainer.append(newImage);
     registerImage(newImage);
 };
 
-addButton.addEventListener('click', addImage);
+const deleteImage = () => {
+    imageContainer.lastChild.remove();
+}
 
+addButton.addEventListener('click', addImage);
+deletedButton.addEventListener('click', deleteImage);
 // mountNode.appendChild(newImage);
